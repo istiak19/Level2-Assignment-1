@@ -187,7 +187,9 @@ const registered: FormUser = { role: "user", name: "Istiak Anik", email: "anik@g
 handleForm(guest);
 handleForm(registered);
 
+
 ### Example: Intersection
+
 
 ```typescript
 interface Guest {
