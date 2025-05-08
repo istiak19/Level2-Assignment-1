@@ -155,8 +155,7 @@ Useful when you want **to merge multiple types** together.
 
 ## Real-World Example: Form Input Handling
 
-
-### Example: Union
+### Example: Union Type
 
 ```typescript
 interface Guest {
@@ -182,14 +181,20 @@ function handleForm(user: FormUser) {
 }
 
 const guest: FormUser = { role: "guest", name: "Istiak" };
-const registered: FormUser = { role: "user", name: "Istiak Anik", email: "anik@gmail.com", userId: 101 };
+const registered: FormUser = {
+  role: "user",
+  name: "Istiak Anik",
+  email: "anik@gmail.com",
+  userId: 101
+};
 
 handleForm(guest);
 handleForm(registered);
+```
 
+---
 
-### Example: Intersection
-
+### Example: Intersection Type
 
 ```typescript
 interface Guest {
@@ -208,7 +213,7 @@ interface PremiumUser {
   premiumStatus: boolean;
 }
 
-// Combining guest and registered user into a new type using intersection type
+// Combining Guest, RegisteredUser, and PremiumUser
 type User = Guest & RegisteredUser & PremiumUser;
 
 function handleUser(user: User) {
@@ -218,13 +223,13 @@ function handleUser(user: User) {
   console.log(`Premium Status: ${user.premiumStatus ? 'Active' : 'Inactive'}`);
 }
 
-// Creating a super user who has both guest and registered user properties
 const user: User = {
   role: "user",
   name: "Istiak Anik",
   email: "anik@gmail.com",
   userId: 101,
-  premiumStatus: true,
+  premiumStatus: true
 };
 
-handleUser(User);
+handleUser(user);
+
